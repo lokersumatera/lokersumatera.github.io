@@ -1,1 +1,1 @@
-# cdn.lokersumatera.com
+# lokersumatera.github.io

@@ -1,1 +1,41 @@
-function saringtags(r,l){for(var e=r.split("<"),t=0;t<e.length;t++)-1!=e[t].indexOf(">")&&(e[t]=e[t].substring(e[t].indexOf(">")+1,e[t].length));return(e=e.join("")).substring(0,l-1)}function relpostimgcuplik(r){for(var l=0;l<r.feed.entry.length;l++){var e=r.feed.entry[l];reljudul[relnojudul]=e.title.$t,postcontent="","content"in e?postcontent=e.content.$t:"summary"in e&&(postcontent=e.summary.$t),relcuplikan[relnojudul]=saringtags(postcontent,numchars),postimg="media$thumbnail"in e?e.media$thumbnail.url:"https://4.bp.blogspot.com/-0wCjTsyFGIs/XnaHZOyNTzI/AAAAAAAADTU/T4eSEfTlLgQzJKZUjHndEVATDOJSOrlAQCLcBGAsYHQ/s240/lokersumatera-hiring.webp",relgambar[relnojudul]=postimg;for(var t=0;t<e.link.length;t++)if("alternate"==e.link[t].rel){relurls[relnojudul]=e.link[t].href;break}relnojudul++}}function contains(r,l){for(var e=0;e<r.length;e++)if(r[e]==l)return!0;return!1}function artikelterkait(){for(var r=new Array(0),l=new Array(0),e=new Array(0),t=new Array(0),n=0;n<relurls.length;n++)contains(r,relurls[n])||(r.length+=1,r[r.length-1]=relurls[n],l.length+=1,l[l.length-1]=reljudul[n],e.length+=1,e[e.length-1]=relcuplikan[n],t.length+=1,t[t.length-1]=relgambar[n]);reljudul=l,relurls=r,relcuplikan=e,relgambar=t;for(n=0;n<reljudul.length;n++){var a=Math.floor((reljudul.length-1)*Math.random()),u=reljudul[n],i=relurls[n],s=relcuplikan[n],o=relgambar[n];reljudul[n]=reljudul[a],relurls[n]=relurls[a],relcuplikan[n]=relcuplikan[a],relgambar[n]=relgambar[a],reljudul[a]=u,relurls[a]=i,relcuplikan[a]=s,relgambar[a]=o}for(var g,d=0,h=Math.floor((reljudul.length-1)*Math.random()),c=h,m=document.URL;relmaxtampil>d&&(relurls[h]==m||(g="<article class='post hover'>",g+="<a href='"+relurls[h]+"' rel='nofollow' target='_top' title='"+reljudul[h]+"'></a>",g+="<a href='"+relurls[h]+"' target='_top'>"+reljudul[h]+"</a>",g+="</article>",document.write(g),++d!=relmaxtampil))&&(h<reljudul.length-1?h++:h=0,h!=c););}var relnojudul=0,relmaxtampil=10,numchars=90,reljudul=new Array,relurls=new Array,relcuplikan=new Array,relgambar=new Array;
+$(document).ready(function() {
+    function relatedPost(g, e, r) {
+        $.ajax({
+            url: "/feeds/posts/default/-/" + e + "?alt=json-in-script&max-results=" + r,
+            type: "get",
+            dataType: "jsonp",
+            success: function(t) {
+                for (var u = "", h = '<div class="related">', x = 0; x < t.feed.entry.length; x++) {
+                    for (var z = 0; z < t.feed.entry[x].link.length; z++) {
+                        if ("alternate" == t.feed.entry[x].link[z].rel) {
+                            u = t.feed.entry[x].link[z].href;
+                            break
+                        }
+                    }
+                    var p = t.feed.entry[x].title.$t;
+                    var c = t.feed.entry[x].content.$t;
+                    var y = $('<div>').html(c);
+                    if (c.indexOf("https://www.youtube.com/embed/") > -1 || c.indexOf("https://www.youtube.com/embed/") > -1) {
+                        var d = t.feed.entry[x].media$thumbnail.url,
+                            m = d.replace('/default.jpg', '/mqdefault.jpg'),
+                            k = m;
+                    } else if (c.indexOf("<img") > -1) {
+                        var s = y.find('img:first').attr('src'),
+                            v = s.replace('s72-c', 's600');
+                        var k = v;
+                    } else {
+                        var k = 'https://2.bp.blogspot.com/-4lZ7DCckjkg/WtaPclghMGI/AAAAAAAAN00/4Cais5iSDRwwUyU6jEc7qlCojlg1izsVgCLcBGAs/s1600/noImage.png';
+                    }
+                    h += '<li><div class="related-thumb"><a class="related-img lazyload" href="' + u + '" style="background:url(' + k + ') no-repeat center center;background-size: cover"/></div><h3 class="related-title"><a href="' + u + '">' + p + '</a></h3></li>'
+                }
+                h += '</div>', g.html(h);
+            }
+        })
+    };
+    $(".related-post.inner").each(function() {
+        var g = $(this),
+            e = g.text(),
+            r = 10;
+        relatedPost(g, e, r);
+    });
+});

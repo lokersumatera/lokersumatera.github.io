@@ -1,0 +1,32 @@
+{
+  "short_name": "Loker Sumatera",
+  "name": "Lowongan Kerja Sumatera",
+   "display": "fullscreen",
+  "background_color": "#fff",
+  "theme_color": "#fff",
+  "start_url": "https://www.lokersumatera.com/",
+  "description": "Berbagi Informasi Seputar Lowongan Kerja",
+  "icons": [
+    {
+      "src": "https://2.bp.blogspot.com/-94VLM1EF97A/Wy6FEh28Z6I/AAAAAAAAAR4/5ssBbqVntUoJJPPh9nBOGU_LitNxBLD0ACLcBGAs/w48-h48-p-k-nu/lsv3-2.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "https://2.bp.blogspot.com/-94VLM1EF97A/Wy6FEh28Z6I/AAAAAAAAAR4/5ssBbqVntUoJJPPh9nBOGU_LitNxBLD0ACLcBGAs/w96-h96-p-k-nu/lsv3-2.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "https://2.bp.blogspot.com/-94VLM1EF97A/Wy6FEh28Z6I/AAAAAAAAAR4/5ssBbqVntUoJJPPh9nBOGU_LitNxBLD0ACLcBGAs/w192-h192-p-k-nu/lsv3-2.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://2.bp.blogspot.com/-94VLM1EF97A/Wy6FEh28Z6I/AAAAAAAAAR4/5ssBbqVntUoJJPPh9nBOGU_LitNxBLD0ACLcBGAs/w512-h512-p-k-nu/lsv3-2.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+    
+  ]
+}

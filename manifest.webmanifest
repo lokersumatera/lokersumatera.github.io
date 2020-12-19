@@ -1,10 +1,11 @@
 {
   "short_name": "Loker Sumatera",
-  "name": "Lowongan Kerja Sumatera",
-   "display": "fullscreen",
-  "background_color": "#fff",
-  "theme_color": "#fff",
-  "start_url": "https://www.lokersumatera.com/",
+  "name": "Lowongan Sumatera",
+   "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f0f2f5",
+  "theme_color": "#f0f2f5",
+  "start_url": "/m=1",
   "description": "Berbagi Informasi Seputar Lowongan Kerja",
   "icons": [
     {

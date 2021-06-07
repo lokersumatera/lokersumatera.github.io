@@ -1,3 +1,50 @@
 RewriteEngine On
 RewriteCond %{HTTPS} on
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# 1 YEAR
+<FilesMatch "\.(ico|pdf|flv)$">
+Header set Cache-Control "max-age=29030400, public"
+</FilesMatch>
+
+# 1 WEEK
+<FilesMatch "\.(jpg|jpeg|png|gif|swf)$">
+Header set Cache-Control "max-age=604800, public"
+</FilesMatch>
+
+# 2 DAYS
+<FilesMatch "\.(xml|txt|css|js)$">
+Header set Cache-Control "max-age=172800, proxy-revalidate"
+</FilesMatch>
+
+# 1 MIN
+<FilesMatch "\.(html|htm|php)$">
+Header set Cache-Control "max-age=60, private, proxy-revalidate"
+</FilesMatch>
+Cache-Control   = "Cache-Control" ":" 1#cache-directive
+
+cache-directive = cache-request-directive
+   | cache-response-directive
+
+cache-request-directive =
+     "no-cache"
+   | "no-store"
+   | "max-age" "=" delta-seconds
+   | "max-stale" [ "=" delta-seconds ]
+   | "min-fresh" "=" delta-seconds
+   | "no-transform"
+   | "only-if-cached"
+   | cache-extension
+
+ cache-response-directive =
+     "public"
+   | "private" [ "=" <"> 1#field-name <"> ]
+   | "no-cache" [ "=" <"> 1#field-name <"> ]
+   | "no-store"
+   | "no-transform"
+   | "must-revalidate"
+   | "proxy-revalidate"
+   | "max-age" "=" delta-seconds
+   | "s-maxage" "=" delta-seconds
+   | cache-extension
+
+cache-extension = token [ "=" ( token | quoted-string ) ]

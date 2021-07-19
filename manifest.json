@@ -5,7 +5,7 @@
   "orientation": "portrait",
   "background_color": "#f0f2f5",
   "theme_color": "#f0f2f5",
-  "start_url": "/m=1",
+  "start_url": ".",
   "description": "Berbagi Informasi Seputar Lowongan Kerja",
   "manifest_version": 2,
   "icons": [

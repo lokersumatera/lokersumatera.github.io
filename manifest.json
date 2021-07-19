@@ -5,7 +5,7 @@
   "orientation": "portrait",
   "background_color": "#f0f2f5",
   "theme_color": "#f0f2f5",
-  "start_url": ".",
+  "start_url": "https://www.lokersumatera.com",
   "description": "Berbagi Informasi Seputar Lowongan Kerja",
   "manifest_version": 2,
   "icons": [
